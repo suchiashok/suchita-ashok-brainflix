@@ -12,6 +12,7 @@
         @include tablet {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
         }
   &__logo {
     display: flex;
@@ -24,6 +25,19 @@
   &__sideElements {
     display: flex;
     justify-content: flex-end;
+        @include tablet {
+            display: block;
+
+
+        }
+  }
+  &__allElements {
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4rem;
+        padding-top: 1rem;
+    }
   }
   &__searchInput {
     flex-grow: 1;
@@ -49,6 +63,10 @@
     position: absolute;
     left: 1.6rem;
     top: 5.3rem;
+        @include tablet {
+            top: 2rem;
+            left: 23rem;
+        }
   }
   &__buttonEl {
     background-color: #0095ff;
@@ -59,16 +77,31 @@
     border-color: transparent;
     border-radius: 0.4rem;
     text-align: center;
+        @include tablet {
+            width: 11rem;
+            height: 2.7rem;
+            font-size: 0.8rem;
+        }
   }
   &__buttonIcon {
     position: absolute;
     left: 1.5rem;
     top: 8.8rem;
     height: 1.7rem;
+        @include tablet {
+            top: 1.7rem;
+            left: 37rem;
+            height: 1.4rem;
+        }
   }
   &__avatar {
     height: 3rem;
     border-radius: 50%;
     width: 3rem;
+        @include tablet {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
   }
 }

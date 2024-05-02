@@ -10,6 +10,7 @@ function Header() {
           alt="brainflix-logo"
         />
       </div>
+      <section className="header__allElements">
       <div className="header__sideElements">
         <form className="header__searchInput">
           <input
@@ -41,6 +42,7 @@ function Header() {
           UPLOAD
         </button>
       </div>
+      </section>
     </header>
   );
 }

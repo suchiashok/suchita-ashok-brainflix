@@ -4,6 +4,7 @@ import "./NextVideos.scss";
 const NextVideos = ({ activeVideosId, videos, setActiveVideosId }) => {
   return (
     <section className="nextVideos">
+      <h4 className="nextVideos__title">NEXT VIDEOS</h4>
       <nav className="nextVideos__nav">
         {videos
           .filter((videos) => videos.id !== activeVideosId)

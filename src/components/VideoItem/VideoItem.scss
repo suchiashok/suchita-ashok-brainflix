@@ -1,0 +1,30 @@
+@use "/src/styles/partials/typography" as *;
+@use "/src/styles/partials/mixins" as *;
+@use "/src/styles/partials/variables" as *;
+
+.navItem {
+  display: flex;
+  gap: 1rem;
+  &__imgEl {
+    display: flex;
+    align-self: center;
+  }
+  &__image {
+    height: 5.2rem;
+    border-radius: 0.3rem;
+  }
+  &__nextVideosDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-weight: bold;
+  }
+  &__channel {
+    font-size: 1.1rem;
+  }
+}

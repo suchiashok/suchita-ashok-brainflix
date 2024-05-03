@@ -4,13 +4,13 @@ const VideoItem = (props) => {
   const { id, title, channel, image, setActiveVideosId } = props;
 
   return (
-    <div className="nextVideos-item" onClick={() => setActiveVideosId(id)}>
-      <div className="nextVideos__imgEl">
-        <img className="nextVideos__image" src={image} alt={title}></img>
+    <div className="navItem" onClick={() => setActiveVideosId(id)}>
+      <div className="navItem__imgEl">
+        <img className="navItem__image" src={image} alt={title}></img>
       </div>
-      <div className="nextVideos__nextVideosDetails">
-        <h4 className="nextVideos__title">{title}</h4>
-        <p className="nextVideos__channel">{channel}</p>
+      <div className="navItem__nextVideosDetails">
+        <h4 className="navItem__title">{title}</h4>
+        <p className="navItem__channel">{channel}</p>
       </div>
     </div>
   );

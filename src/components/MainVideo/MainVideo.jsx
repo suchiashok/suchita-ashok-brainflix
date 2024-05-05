@@ -1,5 +1,5 @@
 import "./MainVideo.scss";
-import Comments from "../Comments/Comments";
+import Comments from "../Comments/Comments"
 import CommentsForm from "../CommentsForm/CommentsForm";
 import videoDetails from "../../data/video-details.json";
 

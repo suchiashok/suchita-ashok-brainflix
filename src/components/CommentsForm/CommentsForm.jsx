@@ -11,7 +11,7 @@ const CommentsForm = () => {
       </div>
       <div className="form__formButton">
         <form className="form__formEl">
-          <label className="form__label" for="comments">
+          <label className="form__label" htmlFor="comments">
             JOIN THE CONVERSATION
           </label>
           <input

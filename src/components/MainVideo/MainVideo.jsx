@@ -26,7 +26,7 @@ const MainVideo = ({ activeVideosId }) => {
       <div className="mainVideo__details">
         <h1 className="mainVideo__title">{activeVideo.title}</h1>
         <div className="mainVideo__stats">
-          <div>
+          <div className="mainVideo__channelDate">
             <h4 className="mainVideo__channel">By {activeVideo.channel}</h4>
             <p className="mainVideo__date">{formatDate(activeVideo.timestamp)}</p>
           </div>

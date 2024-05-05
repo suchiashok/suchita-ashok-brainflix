@@ -6,6 +6,10 @@
   padding-right: 1.2rem;
   padding-left: 1.2rem;
   padding-bottom: 2rem;
+  @include tablet {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   &__title {
     color: #afafaf;
     font-weight: 600;
@@ -13,5 +17,8 @@
     font-size: 1.1rem;
     padding-top: 0.8rem;
     padding-bottom: 1.6rem;
+    @include tablet {
+      font-size: 0.9rem;
+    }
   }
 }

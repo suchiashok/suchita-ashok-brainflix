@@ -6,6 +6,9 @@
   display: flex;
   gap: 1rem;
   padding-bottom: 1.2rem;
+  @include tablet {
+    width: 60%;
+  }
   &__imgEl {
     display: flex;
     align-self: center;
@@ -13,6 +16,9 @@
   &__image {
     height: 5.2rem;
     border-radius: 0.3rem;
+    @include tablet {
+      height: 4.7rem;
+    }
   }
   &__nextVideosDetails {
     display: flex;
@@ -24,9 +30,15 @@
     font-weight: 400;
     font-weight: bold;
     @include margin-reset;
+    @include tablet {
+      font-size: 1rem;
+    }
   }
   &__channel {
     font-size: 1.1rem;
     @include margin-reset;
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 }

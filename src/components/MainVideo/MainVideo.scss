@@ -18,8 +18,8 @@
   &__stats {
     display: flex;
     box-sizing: border-box;
-    border-top: .125rem solid #e1e1e1;
-    border-bottom: .125rem solid #e1e1e1;
+    border-top: 0.125rem solid #e1e1e1;
+    border-bottom: 0.125rem solid #e1e1e1;
     gap: 2rem;
   }
   &__views {
@@ -32,5 +32,9 @@
   }
   &__description {
     font-size: 1.125rem;
+  }
+  &__commentLength {
+    padding-top: 0.5rem;
+    font-weight: 600;
   }
 }

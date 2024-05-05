@@ -1,5 +1,6 @@
 import "./MainVideo.scss";
 import Comments from "../Comments/Comments";
+import CommentsForm from "../CommentsForm/CommentsForm";
 import videoDetails from "../../data/video-details.json";
 
 function formatDate(timestamp) {
@@ -45,6 +46,7 @@ const MainVideo = ({ activeVideosId }) => {
           {activeVideo.comments.length} Comments
         </p>
       </div>
+      <CommentsForm />
       <Comments comment={activeVideo.comments} formatDate={formatDate} />
     </section>
   );

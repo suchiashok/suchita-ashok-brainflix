@@ -5,6 +5,7 @@
 .navItem {
   display: flex;
   gap: 1rem;
+  padding-bottom: 1.2rem;
   &__imgEl {
     display: flex;
     align-self: center;
@@ -19,12 +20,13 @@
     justify-content: space-between;
   }
   &__title {
-    
     font-size: 1.1rem;
     font-weight: 400;
     font-weight: bold;
+    @include margin-reset;
   }
   &__channel {
     font-size: 1.1rem;
+    @include margin-reset;
   }
 }

@@ -11,37 +11,37 @@ function Header() {
         />
       </div>
       <section className="header__allElements">
-      <div className="header__sideElements">
-        <form className="header__searchInput">
-          <input
-            className="header__searchField"
-            type="search"
-            id="searchInput"
-            name="SearchInput"
-            placeholder="Search"
-          />
+        <div className="header__sideElements">
+          <form className="header__searchInput">
+            <input
+              className="header__searchField"
+              type="search"
+              id="searchInput"
+              name="SearchInput"
+              placeholder="Search"
+            />
+            <img
+              className="header__searchIcon"
+              src="/src/assets/Icons/search.svg"
+              alt="search-icon"
+            ></img>
+          </form>
           <img
-            className="header__searchIcon"
-            src="/src/assets/Icons/search.svg"
-            alt="search-icon"
+            className="header__avatar"
+            src="/src/assets/Images/Mohan-muruge.jpg"
+            alt="avatar-image"
           ></img>
-        </form>
-        <img
-          className="header__avatar"
-          src="/src/assets/Images/Mohan-muruge.jpg"
-          alt="avatar-image"
-        ></img>
-      </div>
-      <div className="header__button">
-        <button className="header__buttonEl">
-          <img
-            className="header__buttonIcon"
-            src="/src/assets/Icons/upload.svg"
-            alt="upload-icon"
-          ></img>
-          UPLOAD
-        </button>
-      </div>
+        </div>
+        <div className="header__button">
+          <button className="header__buttonEl">
+            <img
+              className="header__buttonIcon"
+              src="/src/assets/Icons/upload.svg"
+              alt="upload-icon"
+            ></img>
+            UPLOAD
+          </button>
+        </div>
       </section>
     </header>
   );

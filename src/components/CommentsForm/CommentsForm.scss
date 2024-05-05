@@ -12,6 +12,7 @@
     border-radius: 50%;
     width: 3.2rem;
     margin-top: 1.5rem;
+    border-color: transparent;
   }
   &__formEl {
     display: flex;
@@ -28,7 +29,7 @@
   }
   &__input {
     font-size: 1.1rem;
-    height: 6rem;
+    height: 7.5rem;
     width: 93%;
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -54,9 +55,9 @@
     border-color: transparent;
     border-radius: 0.4rem;
     text-align: center;
-        img {
-            position: absolute;
-            left: 1rem;
-        }
+    img {
+      position: absolute;
+      left: 1rem;
+    }
   }
 }

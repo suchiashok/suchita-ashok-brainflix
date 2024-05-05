@@ -3,8 +3,15 @@
 @use "/src/styles/partials/variables" as *;
 
 .nextVideos {
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  padding-bottom: 2rem;
   &__title {
     color: #afafaf;
-    font-weight: 400;
+    font-weight: 600;
+    @include margin-reset;
+    font-size: 1.1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 1.6rem;
   }
 }

@@ -1,4 +1,4 @@
-import "./Comments.scss";
+import "./comments.scss";
 
 const Comments = ({ comment, formatDate }) => {
   return (

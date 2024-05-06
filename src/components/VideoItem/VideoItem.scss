@@ -9,6 +9,9 @@
   @include tablet {
     width: 60%;
   }
+  @include desktop {
+    width: 90%;
+  }
   &__imgEl {
     display: flex;
     align-self: center;

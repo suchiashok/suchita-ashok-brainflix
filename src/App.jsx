@@ -2,7 +2,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import MainVideo from "./components/MainVideo/MainVideo";
 import NextVideos from "./components/NextVideos/NextVideos";
-import Video from "./components/Video/Video"
+import Video from "./components/Video/Video";
 import { useState } from "react";
 import videos from "./data/videos.json";
 
@@ -12,14 +12,14 @@ function App() {
     <>
       <Header />
       <main className="mainBFlix">
-        <Video activeVideosId={activeVideosId}/>
+        <Video activeVideosId={activeVideosId} />
         <section className="mainBFlix__flexComponents">
-        <MainVideo activeVideosId={activeVideosId}/>
-        <NextVideos
-          videos={videos}
-          activeVideosId={activeVideosId}
-          setActiveVideosId={setActiveVideosId}
-        />
+          <MainVideo activeVideosId={activeVideosId} />
+          <NextVideos
+            videos={videos}
+            activeVideosId={activeVideosId}
+            setActiveVideosId={setActiveVideosId}
+          />
         </section>
       </main>
     </>

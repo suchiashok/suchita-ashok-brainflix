@@ -81,7 +81,8 @@
       position: absolute;
       left: 1rem;
       @include desktop {
-        left: 0.4rem;
+        left: 0.7rem;
+        height: 1.2rem;
       }
     }
     @include tablet {

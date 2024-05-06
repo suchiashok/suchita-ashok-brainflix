@@ -11,7 +11,7 @@ body {
   @include fit;
   &__flexComponents {
     @include desktop {
-    display: flex;
+      display: flex;
     }
   }
 }

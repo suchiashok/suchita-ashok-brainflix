@@ -1,17 +1,1 @@
-@use "/src/styles/partials/typography" as *;
-@use "/src/styles/partials/mixins" as *;
-@use "/src/styles/partials/variables" as *;
 
-html,
-body {
-  @include fit;
-  font-family: $font-global, Arial, sans-serif;
-}
-.mainBFlix {
-  @include fit;
-  &__flexComponents {
-    @include desktop {
-      display: flex;
-    }
-  }
-}

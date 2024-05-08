@@ -1,27 +1,14 @@
-import "./App.scss";
-import Header from "./components/Header/Header";
-import MainVideo from "./components/MainVideo/MainVideo";
-import NextVideos from "./components/NextVideos/NextVideos";
-import Video from "./components/Video/Video";
-import { useState } from "react";
-import videos from "./data/videos.json";
+import Home from "./pages/Home/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [activeVideosId, setActiveVideosId] = useState(videos[0].id);
   return (
     <>
-      <Header />
-      <main className="mainBFlix">
-        <Video activeVideosId={activeVideosId} />
-        <section className="mainBFlix__flexComponents">
-          <MainVideo activeVideosId={activeVideosId} />
-          <NextVideos
-            videos={videos}
-            activeVideosId={activeVideosId}
-            setActiveVideosId={setActiveVideosId}
-          />
-        </section>
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import "./MainVideo.scss";
 import Comments from "../Comments/comments";
 import CommentsForm from "../CommentsForm/CommentsForm";

@@ -1,9 +1,6 @@
 import "./Video.scss";
 
-
 const Video = ({ activeVideo }) => {
-
-
   return (
     <section className="video">
       <video

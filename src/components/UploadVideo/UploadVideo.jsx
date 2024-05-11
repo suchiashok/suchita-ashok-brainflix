@@ -1,10 +1,8 @@
 import "./UploadVideo.scss";
-import Header from "../Header/Header";
 
 function UploadVideo() {
   return (
     <>
-      <Header />
       <div className="upload">
         <h3 className="upload__title">Upload Video</h3>
         <form className="upload__form">

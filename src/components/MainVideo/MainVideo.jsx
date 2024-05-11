@@ -2,7 +2,6 @@
 import "./MainVideo.scss";
 import Comments from "../Comments/comments";
 import CommentsForm from "../CommentsForm/CommentsForm";
-import videoDetails from "../../data/video-details.json";
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
@@ -12,18 +11,19 @@ function formatDate(timestamp) {
   return formattedDate;
 }
 
-const MainVideo = ({ activeVideosId }) => {
-  const activeVideo = videoDetails.find((video) => video.id === activeVideosId);
+const MainVideo = ({ activeVideo }) => {
+ 
+  const {title, channel, timestamp, views, likes, description, comments} = activeVideo;
 
   return (
     <section className="mainVideo">
       <div className="mainVideo__details">
-        <h1 className="mainVideo__title">{activeVideo.title}</h1>
+        <h1 className="mainVideo__title">{title}</h1>
         <div className="mainVideo__stats">
           <div className="mainVideo__channelDate">
-            <h4 className="mainVideo__channel">By {activeVideo.channel}</h4>
+            <h4 className="mainVideo__channel">By {channel}</h4>
             <p className="mainVideo__date">
-              {formatDate(activeVideo.timestamp)}
+              {formatDate(timestamp)}
             </p>
           </div>
           <div className="mainVideo__viewsLikes">
@@ -33,25 +33,25 @@ const MainVideo = ({ activeVideosId }) => {
                 src="/src/assets/Icons/views.svg"
                 alt="views-icons"
               ></img>
-              <p className="mainVideo__viewCount">{activeVideo.views}</p>
+              <p className="mainVideo__viewCount">{views}</p>
             </div>
             <div className="mainVideo__likes">
               <img
                 className="mainVideo__likesIcon"
                 src="/src/assets/Icons/likes.svg"
               ></img>
-              <p className="mainVideo__likesCount">{activeVideo.likes}</p>
+              <p className="mainVideo__likesCount">{likes}</p>
             </div>
           </div>
         </div>
         <div className="mainVideo__description">
-          <p>{activeVideo.description}</p>
+          <p>{description}</p>
           <p className="mainVideo__commentLength">
-            {activeVideo.comments.length} Comments
+            {comments.length} Comments
           </p>
         </div>
         <CommentsForm />
-        <Comments comment={activeVideo.comments} formatDate={formatDate} />
+        <Comments comment={comments} formatDate={formatDate} />
       </div>
     </section>
   );

@@ -1,8 +1,8 @@
 import "./Video.scss";
-import videoDetails from "../../data/video-details.json";
 
-const Video = ({ activeVideosId }) => {
-  const activeVideo = videoDetails.find((video) => video.id === activeVideosId);
+
+const Video = ({ activeVideo }) => {
+
 
   return (
     <section className="video">

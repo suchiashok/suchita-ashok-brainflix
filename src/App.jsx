@@ -8,13 +8,13 @@ const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
 const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
 
 function App() {
-  const [ids, setIds] = useState(null);
+  const [videos, setVideos] = useState(null);
 
   useEffect(() => {
     getVideos();
   }, []);
 
-  if (!ids) {
+  if (!videos) {
     return <div className="loader">loading...</div>;
   }
 
@@ -22,9 +22,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home ids={ids} />} />
-          <Route path="/videos/:id" element={<Home id={ids} />} />
-          <Route path="upload" element={<UploadVideo />} />
+          <Route path="/" element={<Home videos={videos} />} />
+          <Route path="/video/:id" element={<Home videos={videos} />} />
+          <Route path="/upload" element={<UploadVideo />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -33,7 +33,7 @@ function App() {
   async function getVideos() {
     try {
       const response = await axios.get(`${BASE_URL}videos?api_key=${API_KEY}`);
-      setIds(response.data.id);
+      setVideos(response.data);
     } catch {
       console.log("Error fetching the videos");
     }

@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import "./VideoItem.scss";
 
 const VideoItem = (props) => {
-  const { id, title, channel, image, setActiveVideosId } = props;
+  const { id, title, channel, image} = props;
 
+  
   return (
-    <div className="navItem" onClick={() => setActiveVideosId(id)}>
+    <Link to={`/video/${id}`}>
+    <div className="navItem">
       <div className="navItem__imgEl">
         <img className="navItem__image" src={image} alt={title}></img>
       </div>
@@ -13,6 +16,7 @@ const VideoItem = (props) => {
         <p className="navItem__channel">{channel}</p>
       </div>
     </div>
+    </Link>
   );
 };
 

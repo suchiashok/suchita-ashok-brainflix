@@ -47,6 +47,7 @@ const MainVideo = ({ activeVideo, setActiveVideo }) => {
         </div>
         <CommentsForm id={id} setActiveVideo={setActiveVideo} />
         <Comments
+          id={id}
           comments={comments}
           formatDate={formatDate}
           setActiveVideo={setActiveVideo}

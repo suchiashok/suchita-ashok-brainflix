@@ -22,12 +22,6 @@ function Home({ videos }) {
     return <div className="loader">loading...</div>;
   }
 
-  if (setActiveVideo) {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
 
   return (
     <>
@@ -49,6 +43,12 @@ function Home({ videos }) {
       }?api_key=${API_KEY}`;
       const { data } = await axios.get(apiURL);
       setActiveVideo(data);
+      if (setActiveVideo) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
     } catch (error) {
       console.log("Error displaying the selected video", error);
     }

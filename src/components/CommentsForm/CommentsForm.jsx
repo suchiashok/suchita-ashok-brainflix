@@ -8,6 +8,11 @@ const CommentsForm = ({id, setActiveVideo}) => {
   const [comment, setComment] = useState("");
 
   const handleSubmit = async () => {
+
+    if(!comment.trim()){
+      alert("Please enter a comment before posting");
+    }
+
     const name = "Anonymous";
     try {
       const apiCommentsURL = `${BASE_URL}videos/${id}/comments?api_key=${API_KEY}`;
@@ -65,7 +70,7 @@ const CommentsForm = ({id, setActiveVideo}) => {
         </div>
         <div className="form__mainButton">
           <button
-            type="button"
+            type="submit"
             className="form__button"
             onClick={handleButtonClick}
           >

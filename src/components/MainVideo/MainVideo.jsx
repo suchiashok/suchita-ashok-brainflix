@@ -10,9 +10,9 @@ function formatDate(timestamp) {
   return formattedDate;
 }
 
-const MainVideo = ({ activeVideo }) => {
- 
-  const {title, channel, timestamp, views, likes, description, comments} = activeVideo;
+const MainVideo = ({ activeVideo, setActiveVideo }) => {
+  const { id, title, channel, timestamp, views, likes, description, comments } =
+    activeVideo;
 
   return (
     <section className="mainVideo">
@@ -21,9 +21,7 @@ const MainVideo = ({ activeVideo }) => {
         <div className="mainVideo__stats">
           <div className="mainVideo__channelDate">
             <h4 className="mainVideo__channel">By {channel}</h4>
-            <p className="mainVideo__date">
-              {formatDate(timestamp)}
-            </p>
+            <p className="mainVideo__date">{formatDate(timestamp)}</p>
           </div>
           <div className="mainVideo__viewsLikes">
             <div className="mainVideo__views">
@@ -45,12 +43,14 @@ const MainVideo = ({ activeVideo }) => {
         </div>
         <div className="mainVideo__description">
           <p>{description}</p>
-          <p className="mainVideo__commentLength">
-            {comments.length} Comments
-          </p>
+          <p className="mainVideo__commentLength">{comments.length} Comments</p>
         </div>
-        <CommentsForm />
-        <Comments comment={comments} formatDate={formatDate} />
+        <CommentsForm id={id} setActiveVideo={setActiveVideo} />
+        <Comments
+          comments={comments}
+          formatDate={formatDate}
+          setActiveVideo={setActiveVideo}
+        />
       </div>
     </section>
   );

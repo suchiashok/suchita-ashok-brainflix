@@ -1,11 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import "./UploadVideo.scss";
 
 function UploadVideo() {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    alert("Form Submitted");
+    navigate("/");
+  };
+
   return (
     <>
       <div className="upload">
         <h3 className="upload__title">Upload Video</h3>
-        <form className="upload__form">
+        <form className="upload__form" onSubmit={handleSubmit}>
           <label className="upload__label">VIDEO THUMBNAIL</label>
           <img
             className="upload__image"
@@ -29,7 +36,7 @@ function UploadVideo() {
               placeholder="Add a description to your video"
             ></input>
           </label>
-          <button className="header__buttonEl">
+          <button type="submit" className="header__buttonEl">
             <img
               className="upload__publishButton"
               src="/src/assets/Icons/publish.svg"

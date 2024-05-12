@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import VideoItem from "../VideoItem/VideoItem";
 import "./NextVideos.scss";
 

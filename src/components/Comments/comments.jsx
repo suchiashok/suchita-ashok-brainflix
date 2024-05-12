@@ -1,10 +1,10 @@
 import "./comments.scss";
 
-const Comments = ({ comment, formatDate }) => {
+const Comments = ({ comments, formatDate }) => {
   return (
     <div className="comment">
-      {comment &&
-        comment.map((commentItem) => (
+      {comments &&
+        comments.map((commentItem) => (
           <div className="comment__container" key={commentItem.id}>
             <div className="comment__icon">
               <img className="comment__iconEl"></img>

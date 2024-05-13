@@ -20,7 +20,7 @@ function UploadVideo() {
           ></img>
           <label className="upload__label">TITLE YOUR VIDEO</label>
           <input
-            className="upload__input"
+            className="upload__input1"
             type="text"
             id="title"
             name="title"
@@ -29,22 +29,24 @@ function UploadVideo() {
           <label className="upload__label">
             ADD A VIDEO DESCRIPTION
             <input
-              className="upload__input"
+              className="upload__input2"
               type="text"
               id="description"
               name="description"
               placeholder="Add a description to your video"
             ></input>
           </label>
-          <button type="submit" className="header__buttonEl">
+          <div className="upload__buttons">
+          <button className="upload__publishButton" type="submit">
             <img
-              className="upload__publishButton"
+              className="upload__publishIcon"
               src="/src/assets/Icons/publish.svg"
               alt="upload-icon"
             ></img>
             PUBLISH
           </button>
           <button className="upload__cancelButton">CANCEL</button>
+          </div>
         </form>
       </div>
     </>

@@ -6,7 +6,7 @@ const VideoItem = (props) => {
 
   
   return (
-    <Link to={`/video/${id}`}>
+    <Link className="navItem__link" to={`/video/${id}`}>
     <div className="navItem">
       <div className="navItem__imgEl">
         <img className="navItem__image" src={image} alt={title}></img>

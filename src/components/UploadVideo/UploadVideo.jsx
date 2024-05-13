@@ -22,7 +22,9 @@ function UploadVideo() {
               ></img>
             </div>
             <div className="upload__inputsDiv">
-              <label className="upload__label">TITLE YOUR VIDEO</label>
+              <label className="upload__label" htmlFor="title">
+                TITLE YOUR VIDEO
+              </label>
               <input
                 className="upload__input1"
                 type="text"
@@ -30,16 +32,16 @@ function UploadVideo() {
                 name="title"
                 placeholder="Add a title to your video"
               ></input>
-              <label className="upload__label">
+              <label className="upload__label" htmlFor="description">
                 ADD A VIDEO DESCRIPTION
-                <input
-                  className="upload__input2"
-                  type="text"
-                  id="description"
-                  name="description"
-                  placeholder="Add a description to your video"
-                ></input>
               </label>
+              <input
+                className="upload__input2"
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Add a description to your video"
+              ></input>
             </div>
           </div>
           <div className="upload__buttonsDiv">

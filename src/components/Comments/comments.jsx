@@ -2,7 +2,6 @@ import axios from "axios";
 import "./comments.scss";
 
 const Comments = ({ id, comments, formatDate, setActiveVideo }) => {
-
   const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
   const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
 
@@ -10,14 +9,16 @@ const Comments = ({ id, comments, formatDate, setActiveVideo }) => {
     try {
       const deleteCommentsURL = `${BASE_URL}videos/${id}/comments/${commentId}?api_key=${API_KEY}`;
       await axios.delete(deleteCommentsURL);
-      setActiveVideo(prevVideo => ({
-        ...prevVideo, 
-        comments: prevVideo.comments.filter(comment => comment.id !== commentId)
-      }))
-    } catch(error) {
+      setActiveVideo((prevVideo) => ({
+        ...prevVideo,
+        comments: prevVideo.comments.filter(
+          (comment) => comment.id !== commentId
+        ),
+      }));
+    } catch (error) {
       console.log("Error deleting the comment", error);
     }
-  }
+  };
 
   return (
     <div className="comment">
@@ -35,12 +36,14 @@ const Comments = ({ id, comments, formatDate, setActiveVideo }) => {
                 </p>
               </div>
               <p className="comment__content">{commentItem.comment}</p>
-              <img
-                className="comment__delete"
-                src="/src/assets/Icons/icon-delete.svg"
-                alt="delete-icon"
-                onClick={() => handleDeleteComment(commentItem.id)}
-              ></img>
+              <div className="comment__deleteIcon">
+                <img
+                  className="comment__deleteIcon"
+                  src="/src/assets/Icons/icon-delete.svg"
+                  alt="delete-icon"
+                  onClick={() => handleDeleteComment(commentItem.id)}
+                ></img>{" "}
+              </div>
             </div>
           </div>
         ))}

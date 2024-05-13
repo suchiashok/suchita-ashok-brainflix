@@ -10,7 +10,10 @@
     padding-right: 2rem;
     padding-left: 2rem;
   }
-
+  @include desktop {
+    padding-right: 7rem;
+    padding-left: 7rem;
+  }
   &__form {
     @include tablet {
       padding-top: 2rem;
@@ -20,6 +23,9 @@
   &__title {
     font-size: 2.3rem;
     color: #323232;
+    @include desktop {
+      font-size: 2rem;
+    }
   }
   &__label {
     color: #afafaf;
@@ -28,6 +34,9 @@
     font-size: 1.17rem;
     @include tablet {
       font-size: 0.9rem;
+    }
+    @include desktop {
+      padding-bottom: 0.3rem;
     }
   }
   &__image {
@@ -38,6 +47,17 @@
     @include tablet {
       display: flex;
       width: 45%;
+    }
+    @include desktop {
+      width: 100%;
+    }
+  }
+  &__inputsDiv {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-top: 0.5rem;
     }
   }
   &__input1,
@@ -62,11 +82,19 @@
       width: 98%;
     }
   }
-
   &__input2 {
     padding-bottom: 6rem;
+    @include desktop {
+      padding-bottom: 5.5rem;
+    }
   }
-  &__buttons {
+  &__imageInputs {
+    @include desktop {
+      display: flex;
+      gap: 3rem;
+    }
+  }
+  &__buttonsDiv {
     @include tablet {
       border-top: 1px solid #e1e1e1;
       padding-top: 1rem;
@@ -89,7 +117,10 @@
       height: 2.7rem;
       font-size: 0.8rem;
       position: absolute;
-      right: 2rem;;
+      right: 2rem;
+    }
+    @include desktop {
+      right: 7rem;
     }
   }
   &__publishIcon {
@@ -124,6 +155,9 @@
       font-size: 0.8rem;
       position: absolute;
       right: 14rem;
+    }
+    @include desktop {
+      right: 19rem;
     }
   }
 }

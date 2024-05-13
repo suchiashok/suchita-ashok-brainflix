@@ -1,29 +1,43 @@
-import "./App.scss";
-import Header from "./components/Header/Header";
-import MainVideo from "./components/MainVideo/MainVideo";
-import NextVideos from "./components/NextVideos/NextVideos";
-import Video from "./components/Video/Video";
-import { useState } from "react";
-import videos from "./data/videos.json";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
+import Home from "./pages/Home/Home";
+import Upload from "./pages/Upload/Upload";
+
+const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
 
 function App() {
-  const [activeVideosId, setActiveVideosId] = useState(videos[0].id);
+  const [videos, setVideos] = useState(null);
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
+  if (!videos) {
+    return <div className="loader">loading...</div>;
+  }
+
   return (
     <>
-      <Header />
-      <main className="mainBFlix">
-        <Video activeVideosId={activeVideosId} />
-        <section className="mainBFlix__flexComponents">
-          <MainVideo activeVideosId={activeVideosId} />
-          <NextVideos
-            videos={videos}
-            activeVideosId={activeVideosId}
-            setActiveVideosId={setActiveVideosId}
-          />
-        </section>
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home videos={videos} />} />
+          <Route path="/video/:id" element={<Home videos={videos} />} />
+          <Route path="/upload" element={<Upload />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
+
+  async function getVideos() {
+    try {
+      const response = await axios.get(`${BASE_URL}videos?api_key=${API_KEY}`);
+      setVideos(response.data);
+    } catch {
+      console.log("Error fetching the videos");
+    }
+  }
 }
 
 export default App;

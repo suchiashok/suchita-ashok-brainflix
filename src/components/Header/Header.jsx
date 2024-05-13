@@ -1,15 +1,18 @@
 import "./Header.scss";
+import { Link } from "react-router-dom"
 
 function Header() {
   return (
     <header className="header">
+      <Link to='/'>
       <div className="header__logo">
         <img
           className="header__logoImage"
           src="/src/assets/Logo/BrainFlix-logo.svg"
-          alt="brainflix-logo"
+          alt="brainFlix-logo"
         />
       </div>
+      </Link>
       <section className="header__allElements">
         <div className="header__sideElements">
           <form className="header__searchInput">
@@ -32,6 +35,7 @@ function Header() {
             alt="avatar-image"
           ></img>
         </div>
+        <Link to='/upload'>
         <div className="header__button">
           <button className="header__buttonEl">
             <img
@@ -42,6 +46,7 @@ function Header() {
             UPLOAD
           </button>
         </div>
+        </Link>
       </section>
     </header>
   );

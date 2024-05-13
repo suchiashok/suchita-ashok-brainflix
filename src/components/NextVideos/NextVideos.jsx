@@ -1,21 +1,20 @@
 import VideoItem from "../VideoItem/VideoItem";
 import "./NextVideos.scss";
 
-const NextVideos = ({ activeVideosId, videos, setActiveVideosId }) => {
+const NextVideos = ({ activeVideo, videos }) => {
   return (
     <section className="nextVideos">
       <h4 className="nextVideos__title">NEXT VIDEOS</h4>
       <nav className="nextVideos__nav">
         {videos
-          .filter((videos) => videos.id !== activeVideosId)
-          .map((videos) => (
+          .filter(video => video.id !== activeVideo.id)
+          .map(video => (
             <VideoItem
-              key={videos.id}
-              id={videos.id}
-              title={videos.title}
-              channel={videos.channel}
-              image={videos.image}
-              setActiveVideosId={setActiveVideosId}
+              key={video.id}
+              id={video.id}
+              title={video.title}
+              channel={video.channel}
+              image={video.image}
             />
           ))}
       </nav>

@@ -1,0 +1,163 @@
+@use "/src/styles/partials/typography" as *;
+@use "/src/styles/partials/mixins" as *;
+@use "/src/styles/partials/variables" as *;
+
+.upload {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  border-top: 1px solid #e1e1e1;
+  @include tablet {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  @include desktop {
+    padding-right: 7rem;
+    padding-left: 7rem;
+  }
+  &__form {
+    @include tablet {
+      padding-top: 2rem;
+      border-top: 1px solid #e1e1e1;
+    }
+  }
+  &__title {
+    font-size: 2.3rem;
+    color: #323232;
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  &__label {
+    color: #afafaf;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    font-size: 1.17rem;
+    @include tablet {
+      font-size: 0.9rem;
+    }
+    @include desktop {
+      padding-bottom: 0.3rem;
+    }
+  }
+  &__image {
+    height: 14rem;
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    @include tablet {
+      display: flex;
+      width: 45%;
+    }
+    @include desktop {
+      width: 100%;
+    }
+  }
+  &__inputsDiv {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-top: 0.5rem;
+    }
+  }
+  &__input1,
+  &__input2 {
+    font-size: 1.1rem;
+    height: 2rem;
+    width: 96%;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    border: 0.125rem solid #e1e1e1;
+    background-color: #fafafa;
+    border-radius: 0.3rem;
+    &::placeholder {
+      color: black;
+      position: absolute;
+      top: 0.9rem;
+      left: 0.8rem;
+    }
+    @include tablet {
+      height: 1.7rem;
+      width: 98%;
+    }
+  }
+  &__input2 {
+    padding-bottom: 6rem;
+    @include desktop {
+      padding-bottom: 5.5rem;
+    }
+  }
+  &__imageInputs {
+    @include desktop {
+      display: flex;
+      gap: 3rem;
+    }
+  }
+  &__buttonsDiv {
+    @include tablet {
+      border-top: 1px solid #e1e1e1;
+      padding-top: 1rem;
+    }
+  }
+  &__publishButton {
+    margin-top: 1rem;
+    font-weight: 600;
+    position: relative;
+    background-color: #0095ff;
+    color: white;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 3.2rem;
+    border-color: transparent;
+    border-radius: 0.4rem;
+    text-align: center;
+    @include tablet {
+      width: 11rem;
+      height: 2.7rem;
+      font-size: 0.8rem;
+      position: absolute;
+      right: 2rem;
+    }
+    @include desktop {
+      right: 7rem;
+    }
+  }
+  &__publishIcon {
+    position: absolute;
+    left: 0.7rem;
+    top: 0.5rem;
+    height: 1.7rem;
+    @include tablet {
+      top: 0.5rem;
+      left: 0.5rem;
+      height: 1.4rem;
+    }
+  }
+  &__cancelButton {
+    margin-top: 1rem;
+    font-weight: 600;
+    position: relative;
+    background-color: transparent;
+    color: #0095ff;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 3.2rem;
+    border-color: transparent;
+    border-radius: 0.4rem;
+    text-align: center;
+    &:hover {
+      border: 1px solid #0095ff;
+    }
+    @include tablet {
+      width: 11rem;
+      height: 2.7rem;
+      font-size: 0.8rem;
+      position: absolute;
+      right: 14rem;
+    }
+    @include desktop {
+      right: 19rem;
+    }
+  }
+}

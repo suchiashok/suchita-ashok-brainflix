@@ -7,8 +7,8 @@ import MainVideo from "../../components/MainVideo/MainVideo";
 import NextVideos from "../../components/NextVideos/NextVideos";
 import Video from "../../components/Video/Video";
 
-const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
+// const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+// const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
 
 function Home({ videos }) {
   const { id } = useParams();
@@ -22,14 +22,16 @@ function Home({ videos }) {
     return <div className="loader">loading...</div>;
   }
 
-
   return (
     <>
       <Header />
       <main className="mainBFlix">
         <Video activeVideo={activeVideo} />
         <section className="mainBFlix__flexComponents">
-          <MainVideo activeVideo={activeVideo} setActiveVideo={setActiveVideo} />
+          <MainVideo
+            activeVideo={activeVideo}
+            setActiveVideo={setActiveVideo}
+          />
           <NextVideos videos={videos} activeVideo={activeVideo} />
         </section>
       </main>
@@ -38,9 +40,15 @@ function Home({ videos }) {
 
   async function getSelectedVideo() {
     try {
-      const apiURL = `${BASE_URL}videos/${
-        id || videos[0].id
-      }?api_key=${API_KEY}`;
+      // const apiURL = `${BASE_URL}videos/${
+      //   id || videos[0].id
+      // }?api_key=${API_KEY}`;
+      // const { data }  = await axios.get(
+      //   import.meta.env.VITE_LOCALHOST + `/videos/${id || videos[0].id}`
+      // );
+      const videoId = id || videos[0].id;
+
+      const apiURL = `${import.meta.env.VITE_LOCALHOST}/videos/${videoId}`;
       const { data } = await axios.get(apiURL);
       setActiveVideo(data);
       if (setActiveVideo) {

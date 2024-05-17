@@ -1,11 +1,29 @@
 import { useNavigate } from "react-router-dom";
 import "./UploadVideo.scss";
+import { useState } from "react";
+import axios from "axios";
 
 function UploadVideo() {
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    alert("Form Submitted");
-    navigate("/");
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await axios.post("http://localhost:8000/videos", {
+        title: event.target.title.value,
+        description: event.target.description.value,
+      });
+      alert("Form Submitted");
+      navigate("/");
+
+      setSuccess(true);
+      setErrorMessage("");
+    } catch (error) {
+      setErrorMessage(error.response.data);
+    }
   };
 
   return (
@@ -55,6 +73,8 @@ function UploadVideo() {
             </button>
             <button className="upload__cancelButton">CANCEL</button>
           </div>
+          {success && "Added note"}
+          {errorMessage}
         </form>
       </div>
     </>

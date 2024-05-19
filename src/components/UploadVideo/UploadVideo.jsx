@@ -3,20 +3,24 @@ import "./UploadVideo.scss";
 import { useState } from "react";
 import axios from "axios";
 
-function UploadVideo() {
+function UploadVideo({activeVideo}) {
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await axios.post("http://localhost:8000/videos", {
+      const videoData = {
         title: event.target.title.value,
         description: event.target.description.value,
-      });
-      alert("Form Submitted");
+      };
+  
+      const apiURL = `${import.meta.env.VITE_LOCALHOST}/videos`
+      await axios.post(apiURL, videoData);
+      alert("Video Uploaded");
       navigate("/");
 
       setSuccess(true);
@@ -37,6 +41,7 @@ function UploadVideo() {
               <img
                 className="upload__image"
                 src="/src/assets/Images/Upload-video-preview.jpg"
+                alt="video-preview-image"
               ></img>
             </div>
             <div className="upload__inputsDiv">
@@ -49,6 +54,7 @@ function UploadVideo() {
                 id="title"
                 name="title"
                 placeholder="Add a title to your video"
+                required
               ></input>
               <label className="upload__label" htmlFor="description">
                 ADD A VIDEO DESCRIPTION
@@ -59,6 +65,7 @@ function UploadVideo() {
                 id="description"
                 name="description"
                 placeholder="Add a description to your video"
+                required
               ></input>
             </div>
           </div>
@@ -73,7 +80,7 @@ function UploadVideo() {
             </button>
             <button className="upload__cancelButton">CANCEL</button>
           </div>
-          {success && "Added note"}
+          {success}
           {errorMessage}
         </form>
       </div>

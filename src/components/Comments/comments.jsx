@@ -2,12 +2,11 @@ import axios from "axios";
 import "./comments.scss";
 
 const Comments = ({ id, comments, formatDate, setActiveVideo }) => {
-  const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-  const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
-
   const handleDeleteComment = async (commentId) => {
     try {
-      const deleteCommentsURL = `${BASE_URL}videos/${id}/comments/${commentId}?api_key=${API_KEY}`;
+      const deleteCommentsURL = `${
+        import.meta.env.VITE_LOCALHOST
+      }/videos/${id}/comments/${commentId}`;
       await axios.delete(deleteCommentsURL);
       setActiveVideo((prevVideo) => ({
         ...prevVideo,

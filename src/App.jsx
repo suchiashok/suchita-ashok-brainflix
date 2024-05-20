@@ -16,15 +16,13 @@ function App() {
   }
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home videos={videos} />} />
-          <Route path="/video/:id" element={<Home videos={videos} />} />
-          <Route path="/upload" element={<Upload />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home videos={videos} />} />
+        <Route path="/video/:id" element={<Home videos={videos} />} />
+        <Route path="/upload" element={<Upload />} />
+      </Routes>
+    </BrowserRouter>
   );
 
   async function getVideos() {

@@ -3,7 +3,7 @@ import "./UploadVideo.scss";
 import { useState } from "react";
 import axios from "axios";
 
-function UploadVideo({activeVideo}) {
+function UploadVideo() {
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,6 +29,11 @@ function UploadVideo({activeVideo}) {
       setErrorMessage(error.response.data);
     }
   };
+
+  const handleCancel = async () => {
+    alert("Your video upload has been cancelled, redirecting to the homepage");
+    navigate("/");
+  }
 
   return (
     <>
@@ -78,7 +83,7 @@ function UploadVideo({activeVideo}) {
               ></img>
               PUBLISH
             </button>
-            <button className="upload__cancelButton">CANCEL</button>
+            <button className="upload__cancelButton" type="submit" onClick={handleCancel}>CANCEL</button>
           </div>
           {success}
           {errorMessage}

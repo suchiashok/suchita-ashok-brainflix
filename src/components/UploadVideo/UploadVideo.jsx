@@ -1,10 +1,36 @@
 import { useNavigate } from "react-router-dom";
 import "./UploadVideo.scss";
+import { useState } from "react";
+import axios from "axios";
 
 function UploadVideo() {
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    alert("Form Submitted");
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const videoData = {
+        title: event.target.title.value,
+        description: event.target.description.value,
+      };
+
+      const apiURL = `${import.meta.env.VITE_LOCALHOST}/videos`;
+      await axios.post(apiURL, videoData);
+      alert("Video Uploaded");
+      navigate("/");
+
+      setSuccess(true);
+      setErrorMessage("");
+    } catch (error) {
+      setErrorMessage(error.response.data);
+    }
+  };
+
+  const handleCancel = async () => {
+    alert("Your video upload has been cancelled, redirecting to the homepage");
     navigate("/");
   };
 
@@ -19,6 +45,7 @@ function UploadVideo() {
               <img
                 className="upload__image"
                 src="/src/assets/Images/Upload-video-preview.jpg"
+                alt="video-preview-image"
               ></img>
             </div>
             <div className="upload__inputsDiv">
@@ -31,6 +58,7 @@ function UploadVideo() {
                 id="title"
                 name="title"
                 placeholder="Add a title to your video"
+                required
               ></input>
               <label className="upload__label" htmlFor="description">
                 ADD A VIDEO DESCRIPTION
@@ -41,6 +69,7 @@ function UploadVideo() {
                 id="description"
                 name="description"
                 placeholder="Add a description to your video"
+                required
               ></input>
             </div>
           </div>
@@ -53,8 +82,16 @@ function UploadVideo() {
               ></img>
               PUBLISH
             </button>
-            <button className="upload__cancelButton">CANCEL</button>
+            <button
+              className="upload__cancelButton"
+              type="submit"
+              onClick={handleCancel}
+            >
+              CANCEL
+            </button>
           </div>
+          {success}
+          {errorMessage}
         </form>
       </div>
     </>

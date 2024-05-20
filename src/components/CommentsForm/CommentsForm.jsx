@@ -3,8 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const CommentsForm = ({id, setActiveVideo}) => {
-  const BASE_URL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-  const API_KEY = "98457a44-b052-41f0-a7e8-25093f568c3f";
   const [comment, setComment] = useState("");
 
   const handleSubmit = async () => {
@@ -13,17 +11,17 @@ const CommentsForm = ({id, setActiveVideo}) => {
       alert("Please enter a comment before posting");
     }
 
-    const name = "Anonymous";
     try {
-      const apiCommentsURL = `${BASE_URL}videos/${id}/comments?api_key=${API_KEY}`;
-      const response = await axios.post(apiCommentsURL, {
-        name: name,
-        comment: comment,
-      });
+      const newComment = {
+        comment: comment.trim(),
+      }
+      const apiCommentsURL = `${import.meta.env.VITE_LOCALHOST}/videos/${id}/comments`;
+      const response = await axios.post(apiCommentsURL, newComment);
+      const addedComment = response.data
       setComment("");
       setActiveVideo(prevVideo => ({
         ...prevVideo,
-        comments: [...prevVideo.comments, response.data]
+        comments: [...prevVideo.comments, addedComment]
       }));
     } catch (error) {
       console.log("Error fetching the comments", error);

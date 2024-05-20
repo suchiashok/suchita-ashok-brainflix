@@ -7,7 +7,6 @@ function UploadVideo() {
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
- 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,8 +16,8 @@ function UploadVideo() {
         title: event.target.title.value,
         description: event.target.description.value,
       };
-  
-      const apiURL = `${import.meta.env.VITE_LOCALHOST}/videos`
+
+      const apiURL = `${import.meta.env.VITE_LOCALHOST}/videos`;
       await axios.post(apiURL, videoData);
       alert("Video Uploaded");
       navigate("/");
@@ -33,7 +32,7 @@ function UploadVideo() {
   const handleCancel = async () => {
     alert("Your video upload has been cancelled, redirecting to the homepage");
     navigate("/");
-  }
+  };
 
   return (
     <>
@@ -83,7 +82,13 @@ function UploadVideo() {
               ></img>
               PUBLISH
             </button>
-            <button className="upload__cancelButton" type="submit" onClick={handleCancel}>CANCEL</button>
+            <button
+              className="upload__cancelButton"
+              type="submit"
+              onClick={handleCancel}
+            >
+              CANCEL
+            </button>
           </div>
           {success}
           {errorMessage}
